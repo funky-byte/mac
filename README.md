@@ -5,6 +5,8 @@ Converting the separator in the MAC address from "-" to ":" and vice versa, chec
 q - quit
 
 ```
+shell ~ $ git clone --depth=1 https://github.com/anamorfis/mac
+shell ~ $ cd mac
 shell ~ $ ./mac.py 
 mac: 00-17-9A-05-85-56
 00:17:9A:05:85:56
