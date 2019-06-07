@@ -4,7 +4,7 @@ def cyrillic_check(a):
     alphabet = ('абвгдеёжзийклмнопрстуфхцчшщъыьэюя')
     find_cyrillic = [x for x in alphabet if x in a.lower()]
     if not find_cyrillic:
-        replace(a)
+        return True
     else:
         print("Сyrillic simbols: %s" % find_cyrillic) 
 
@@ -20,4 +20,5 @@ while i > 0:
     if a == "q":
         break
     else:
-        cyrillic_check(a)
+        if cyrillic_check(a) == True:
+            replace(a)
