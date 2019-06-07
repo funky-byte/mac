@@ -6,7 +6,7 @@ def cyrillic_check(a):
     if not find_cyrillic:
         replace(a)
     else:
-        print("Fuck! Сyrillic simbols: %s" % find_cyrillic) 
+        print("Сyrillic simbols: %s" % find_cyrillic) 
 
 def replace(a):
     if "-" in a:
