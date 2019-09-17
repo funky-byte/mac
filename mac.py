@@ -10,20 +10,20 @@ def help():
         "-c convert from to cisco-like mac-address separated by '.' or '-'\n" )
 
 
-def cyrillic_check(a):
+def cyrillic_check(mac):
     alphabet = ('абвгдеёжзийклмнопрстуфхцчшщъыьэюя')
-    find_cyrillic = [x for x in alphabet if x in a.lower()]
+    find_cyrillic = [x for x in alphabet if x in mac.lower()]
     if find_cyrillic:
         print("Сyrillic simbols: %s" % find_cyrillic) 
         return False
     return True
 
 
-def replace(a):
-    if "-" in a:
-        print(a.replace('-',':'))
-    if ":" in a:
-        print(a.replace(':','-'))
+def replace(mac):
+    if "-" in mac:
+        print(mac.replace('-',':'))
+    if ":" in mac:
+        print(mac.replace(':','-'))
 
 
 def cisco_replace(mac):
@@ -59,9 +59,11 @@ if len(sys.argv) > 1 :
             replace(sys.argv[1])
 else:
     while True:
-        a = str(input("mac: "))
-        if a == "q":
+        mac = str(input("mac: "))
+        if mac == "q":
             break
+        elif mac == "h":
+            help()
         else:
-            if cyrillic_check(a):
-                replace(a)
+            if cyrillic_check(mac):
+                replace(mac)
