@@ -2,7 +2,6 @@
 
 import sys
 
-
 def help():
     print(
         "Convert mac-address with different separations.\n"
