@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 
 import sys
+import py_compile
+py_compile.compile(sys.argv[0])
 
 def help():
-    print(
-        "Convert mac-address with different separations.\n"
-        "Without flags convert from normal mac-address separated by ':' or '-'\n"
-        "-c convert from to cisco-like mac-address separated by '.' or '-'\n" )
+    print("\n"
+        "Convert mac-address with different separations.\n\n"
+        "Without flags convert from normal mac-address separated by ':' or '-'\n\n"
+        "\033[1m -c \033[0m convert from to cisco-like mac-address separated by '.' or '-'\n" )
 
 
 def cyrillic_check(mac):
