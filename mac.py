@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
 import sys
-import py_compile
-py_compile.compile(sys.argv[0])
 
 def help():
     print("\n"
