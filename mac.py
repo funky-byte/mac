@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import sys
-import requests
+from requests import get
 
 def help():
     print("\n"
@@ -52,7 +52,7 @@ def cisco_mac():
 def macvendor():
     if len(sys.argv)> 2:
         if cyrillic_check(sys.argv[2]):
-            r = requests.get('https://api.macvendors.com/%s' % sys.argv[2])
+            r = get('https://api.macvendors.com/%s' % sys.argv[2])
             print("\033[1m %s \033[0m \n" % r.text)
 
 if len(sys.argv) > 1 :
