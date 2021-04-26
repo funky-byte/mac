@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import sys
+from sys import argv
 from requests import get
 
 def help():
@@ -43,28 +43,28 @@ def cisco_replace(mac):
 
 
 def cisco_mac():
-    if len(sys.argv) > 2:
-        if cyrillic_check(sys.argv[2]):
-            cisco_replace(sys.argv[2])
+    if len(argv) > 2:
+        if cyrillic_check(argv[2]):
+            cisco_replace(argv[2])
     else:
         print("input cisco-like mac or normal mac separated by '-'")
 
 def macvendor():
-    if len(sys.argv)> 2:
-        if cyrillic_check(sys.argv[2]):
-            r = get('https://api.macvendors.com/%s' % sys.argv[2])
+    if len(argv)> 2:
+        if cyrillic_check(argv[2]):
+            r = get('https://api.macvendors.com/%s' % argv[2])
             print("\033[1m %s \033[0m \n" % r.text)
 
-if len(sys.argv) > 1 :
-    if sys.argv[1] == "-h":
+if len(argv) > 1 :
+    if argv[1] == "-h":
         help()
-    elif sys.argv[1] == "-c":
+    elif argv[1] == "-c":
         cisco_mac()
-    elif sys.argv[1] == "-v":
+    elif argv[1] == "-v":
         macvendor()
     else:
-        if cyrillic_check(sys.argv[1]):
-            replace(sys.argv[1])
+        if cyrillic_check(argv[1]):
+            replace(argv[1])
 else:
     while True:
         mac = str(input("mac: "))
