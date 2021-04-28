@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from sys import argv
+from sys import argv, exit
 from requests import get
 
 def help():
@@ -67,11 +67,14 @@ if len(argv) > 1 :
             replace(argv[1])
 else:
     while True:
-        mac = str(input("mac: "))
-        if mac == "q":
-            break
-        elif mac == "h":
-            help()
+        try:
+            mac = str(input("mac: "))
+            if mac == "q":
+                break
+            elif mac == "h":
+                help()
+        except KeyboardInterrupt:
+            exit(0)
         else:
             if cyrillic_check(mac):
                 replace(mac)
