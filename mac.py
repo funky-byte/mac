@@ -56,7 +56,7 @@ def macvendor():
             print("\033[1m %s \033[0m \n" % r.text)
 
 if len(argv) > 1 :
-    if argv[1] == "-h":
+    if argv[1] == "-h" or "--help":
         help()
     elif argv[1] == "-c":
         cisco_mac()
@@ -67,11 +67,15 @@ if len(argv) > 1 :
             replace(argv[1])
 else:
     while True:
-        mac = str(input("mac: "))
-        if mac == "q":
-            break
-        elif mac == "h":
-            help()
+        try:
+          mac = str(input("mac: "))
+        except KeyboardInterrupt:
+          break
         else:
-            if cyrillic_check(mac):
-                replace(mac)
+          if mac == "q":
+              break
+          elif mac == "h":
+              help()
+          else:
+              if cyrillic_check(mac):
+                  replace(mac)
