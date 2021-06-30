@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from sys import argv
+from sys import argv, exit
 from requests import get
 
 def help():
@@ -71,6 +71,8 @@ else:
           mac = str(input("mac: "))
         except KeyboardInterrupt:
           break
+        except KeyboardInterrupt:
+            exit(0)
         else:
           if mac == "q":
               break
